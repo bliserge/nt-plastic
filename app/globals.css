@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* NT brand tokens */
+  --color-nt-blue: var(--nt-blue);
+  --color-nt-blue-foreground: var(--nt-blue-foreground);
+  --color-nt-green: var(--nt-green);
+  --color-nt-green-foreground: var(--nt-green-foreground);
+  --color-industrial: var(--industrial);
+  --color-industrial-foreground: var(--industrial-foreground);
+  --color-industrial-muted: var(--industrial-muted);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  color-scheme: light;
+
+  --nt-blue: oklch(0.44 0.13 249);
+  --nt-blue-foreground: oklch(0.98 0.005 250);
+  --nt-green: oklch(0.7 0.16 156);
+  --nt-green-foreground: oklch(0.2 0.03 250);
+  --industrial: oklch(0.21 0.03 250);
+  --industrial-foreground: oklch(0.97 0.005 250);
+  --industrial-muted: oklch(0.28 0.03 250);
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.19 0.02 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.19 0.02 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.19 0.02 250);
+  --primary: oklch(0.44 0.13 249);
+  --primary-foreground: oklch(0.98 0.005 250);
+  --secondary: oklch(0.96 0.01 250);
+  --secondary-foreground: oklch(0.24 0.03 250);
+  --muted: oklch(0.96 0.008 250);
+  --muted-foreground: oklch(0.5 0.02 250);
+  --accent: oklch(0.7 0.16 156);
+  --accent-foreground: oklch(0.2 0.03 250);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.9 0.01 250);
+  --input: oklch(0.9 0.01 250);
+  --ring: oklch(0.44 0.13 249);
+  --radius: 0.375rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'ss01', 'cv01';
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    letter-spacing: -0.02em;
+  }
+}
