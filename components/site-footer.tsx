@@ -24,9 +24,7 @@ export function SiteFooter() {
 
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-4 py-16 sm:px-6 md:grid-cols-4 lg:grid-cols-5 lg:px-8">
         <div className="col-span-2 lg:col-span-1">
-          <div className="[&_*]:!text-industrial-foreground">
-            <Logo invert />
-          </div>
+          <Logo invert />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-industrial-foreground/60">
             {site.description}
           </p>

@@ -1,11 +1,19 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 export function Logo({ className, invert = false }: { className?: string; invert?: boolean }) {
   return (
     <Link href="/" className={cn('inline-flex items-center gap-2.5', className)} aria-label="NT Plastic Industries home">
-      <span className="grid h-9 w-9 place-items-center rounded-sm bg-nt-blue">
-        <span className="font-display text-sm font-extrabold tracking-tight text-nt-blue-foreground">NT</span>
+      <span className="grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-sm">
+        <Image
+          src="/logo.png"
+          alt=""
+          width={36}
+          height={36}
+          className="h-9 w-9 object-contain"
+          priority
+        />
       </span>
       <span className="flex flex-col leading-none">
         <span
