@@ -11,7 +11,7 @@ import { equipment, qualityChecks, capacityStats } from '@/lib/content'
 export const metadata: Metadata = {
   title: 'Manufacturing',
   description:
-    'Inside NT Plastic Industries — our production process, machinery, quality control and manufacturing capacity.',
+    'Inside NT Plastic Industries: production process, machinery, quality control and manufacturing capacity.',
 }
 
 export default function ManufacturingPage() {
@@ -20,11 +20,10 @@ export default function ManufacturingPage() {
       <PageHero
         eyebrow="Manufacturing"
         title="Where raw material becomes reliable product"
-        description="From resin to finished goods, every product moves through a controlled process built for consistency, precision and scale."
+        description="From resin to finished goods, every product moves through a controlled process designed for consistency, precision and scale."
         image="/images/factory-floor.png"
       />
 
-      {/* Capacity stats */}
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-7xl px-4 py-14 md:px-6">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
@@ -42,13 +41,12 @@ export default function ManufacturingPage() {
         </div>
       </section>
 
-      {/* Process */}
       <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-28">
           <SectionHeading
             eyebrow="The Process"
-            title="Seven steps, start to finish"
-            description="A repeatable production flow that turns polymer into products ready for market."
+            title="A repeatable flow from raw material to finished goods"
+            description="Each stage is structured to keep output consistent, reduce avoidable variation and support dependable delivery."
           />
           <div className="mt-14">
             <ProcessSteps />
@@ -56,13 +54,12 @@ export default function ManufacturingPage() {
         </div>
       </section>
 
-      {/* Equipment */}
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-28">
           <SectionHeading
             eyebrow="Machinery"
             title="Built for volume and precision"
-            description="Our production lines combine established moulding and extrusion technologies to serve a broad product range."
+            description="Our production lines combine moulding and extrusion technologies to support a broad product range with consistent output."
           />
           <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
             {equipment.map((e) => (
@@ -81,7 +78,6 @@ export default function ManufacturingPage() {
         </div>
       </section>
 
-      {/* Quality control */}
       <section className="border-b border-border bg-background">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 md:grid-cols-2 md:px-6 md:py-28">
           <Reveal>
@@ -99,7 +95,7 @@ export default function ManufacturingPage() {
             <SectionHeading
               eyebrow="Quality Control"
               title="Checked at every stage"
-              description="Quality is not a final gate — it is verified throughout production, so problems are caught early and every batch ships to standard."
+              description="Quality is verified throughout production, so issues are caught early and each batch is prepared against standard before it leaves the plant."
               align="left"
             />
             <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -113,6 +109,30 @@ export default function ManufacturingPage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border bg-card">
+        <div className="mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-28">
+          <SectionHeading
+            eyebrow="Production confidence"
+            title="Consistency you can build on"
+            description="The manufacturing environment is set up to support dependable output, predictable lead times and long-term customer relationships."
+          />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              'Structured production flow',
+              'Trained operators and supervisors',
+              'Quality checkpoints at critical points',
+              'Equipment matched to product type',
+              'Efficient handling and packaging',
+              'Distribution readiness for customer demand',
+            ].map((item) => (
+              <div key={item} className="rounded-lg border border-border bg-background px-5 py-4 text-sm text-foreground">
+                {item}
+              </div>
+            ))}
           </div>
         </div>
       </section>

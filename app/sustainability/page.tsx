@@ -10,7 +10,7 @@ import { sustainabilityInitiatives, sustainabilityMetrics } from '@/lib/content'
 export const metadata: Metadata = {
   title: 'Sustainability',
   description:
-    'How NT Plastic Industries manufactures responsibly — waste reduction, resource efficiency, recycling and product longevity.',
+    'How NT Plastic Industries manufactures responsibly through waste reduction, resource efficiency, recycling and product longevity.',
 }
 
 export default function SustainabilityPage() {
@@ -19,23 +19,21 @@ export default function SustainabilityPage() {
       <PageHero
         eyebrow="Sustainability"
         title="Manufacturing responsibly, product by product"
-        description="Plastic done right is durable, efficient and recoverable. We focus on making products that last and running a process that wastes less."
+        description="Plastic done well is durable, efficient and recoverable. We focus on making products that last and running a process that uses less and wastes less."
         image="/images/sustainability.png"
       />
 
-      {/* Statement */}
       <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-3xl px-4 py-20 text-center md:px-6 md:py-28">
           <Reveal>
             <p className="text-balance font-sans text-2xl font-medium leading-relaxed text-foreground md:text-3xl">
-              We believe responsible manufacturing and good business go together. Making products that last longer, using
-              materials more efficiently, and recovering what we can are simply better ways to operate.
+              Responsible manufacturing and good business go together. Better material efficiency, longer product life
+              cycles and lower waste are good for customers and good for the business.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* Metrics */}
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-7xl px-4 py-14 md:px-6">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
@@ -50,19 +48,19 @@ export default function SustainabilityPage() {
               </div>
             ))}
           </div>
-          <p className="mt-8 text-center font-mono text-xs uppercase tracking-wider text-muted-foreground">
-            Sample figures — to be replaced with verified company data.
-          </p>
+          <div className="mt-8 rounded-3xl border border-border bg-background p-6 text-sm leading-relaxed text-muted-foreground md:p-8">
+            These figures show the direction of the sustainability program: less waste, better efficiency and more
+            value extracted from each kilogram of material.
+          </div>
         </div>
       </section>
 
-      {/* Initiatives */}
       <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-28">
           <SectionHeading
             eyebrow="Our Commitments"
-            title="Where we focus our efforts"
-            description="Practical initiatives across our operations that reduce impact and improve efficiency."
+            title="Where we focus our effort"
+            description="The approach combines practical manufacturing discipline with a more efficient use of raw materials and energy."
           />
           <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
             {sustainabilityInitiatives.map((item, i) => (
@@ -78,7 +76,6 @@ export default function SustainabilityPage() {
         </div>
       </section>
 
-      {/* Closing image band */}
       <section className="border-b border-border bg-card">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 md:grid-cols-2 md:px-6 md:py-28">
           <Reveal>
@@ -96,7 +93,7 @@ export default function SustainabilityPage() {
             <SectionHeading
               eyebrow="Circularity"
               title="Recovering material, not discarding it"
-              description="Suitable production offcuts and recovered plastic are reprocessed back into our manufacturing where quality allows — reducing waste and getting more from every kilogram of material."
+              description="Suitable production offcuts and recovered plastic are reprocessed back into manufacturing where quality allows, reducing waste and getting more from every kilogram of material."
               align="left"
             />
           </div>

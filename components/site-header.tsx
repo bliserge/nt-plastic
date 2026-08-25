@@ -41,8 +41,8 @@ export function SiteHeader() {
     <>
       <header
         className={cn(
-          'fixed inset-x-0 top-0 z-50 transition-colors duration-300',
-          solid ? 'border-b border-border bg-background/90 backdrop-blur-md' : 'bg-transparent',
+          'fixed inset-x-0 top-0 z-50 transition-all duration-300',
+          solid ? 'border-b border-border bg-background/88 backdrop-blur-xl' : 'bg-transparent',
         )}
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
@@ -58,10 +58,10 @@ export function SiteHeader() {
                   className={cn(
                     'text-sm font-medium transition-colors',
                     light
-                      ? 'text-industrial-foreground/80 hover:text-industrial-foreground'
+                      ? 'text-industrial-foreground/78 hover:text-industrial-foreground'
                       : active
                         ? 'text-nt-blue'
-                        : 'text-foreground/70 hover:text-foreground',
+                        : 'text-foreground/72 hover:text-foreground',
                   )}
                 >
                   {item.label}
@@ -73,7 +73,7 @@ export function SiteHeader() {
           <div className="hidden lg:block">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-sm bg-nt-blue px-4 py-2.5 text-sm font-semibold text-nt-blue-foreground transition-colors hover:bg-nt-blue/90"
+              className="inline-flex items-center gap-2 rounded-full bg-nt-green px-5 py-2.5 text-sm font-semibold text-nt-green-foreground shadow-sm shadow-black/10 transition-all hover:-translate-y-0.5 hover:bg-nt-green/90"
             >
               Request a Quote
               <ArrowRight className="h-4 w-4" />
@@ -129,7 +129,7 @@ export function SiteHeader() {
         <div className="p-6">
           <Link
             href="/contact"
-            className="flex items-center justify-center gap-2 rounded-sm bg-nt-green px-5 py-4 text-base font-semibold text-nt-green-foreground"
+            className="flex items-center justify-center gap-2 rounded-full bg-nt-green px-5 py-4 text-base font-semibold text-nt-green-foreground"
           >
             Request a Quote
             <ArrowRight className="h-5 w-5" />

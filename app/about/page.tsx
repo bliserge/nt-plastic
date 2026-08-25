@@ -10,7 +10,7 @@ import { milestones, values, leadership, mission, vision, stats } from '@/lib/co
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'The story, mission, values and people behind NT Plastic Industries Ltd — a modern plastic manufacturing company.',
+    'The story, mission, values and leadership structure behind NT Plastic Industries Ltd, a modern plastic manufacturing company.',
 }
 
 export default function AboutPage() {
@@ -18,12 +18,11 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Us"
-        title="A manufacturing company built on doing things properly"
-        description="For nearly two decades we have manufactured the plastic products that homes, businesses and infrastructure rely on every day — and we are still investing in doing it better."
+        title="A manufacturing company built on precision and trust"
+        description="For nearly two decades, NT Plastic Industries has manufactured plastic products that homes, businesses and infrastructure depend on every day, while continuing to invest in better processes and stronger service."
         image="/images/about-facility.png"
       />
 
-      {/* Mission & Vision */}
       <section className="border-b border-border bg-background">
         <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-none px-0 md:grid-cols-2">
           <Reveal>
@@ -45,7 +44,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats */}
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-7xl px-4 py-14 md:px-6">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
@@ -63,13 +61,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story / timeline */}
       <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-28">
           <SectionHeading
             eyebrow="Our Journey"
-            title="From a single line to a full manufacturer"
-            description="Milestones that shaped NT Plastic Industries into the company it is today."
+            title="From a focused manufacturer to a regional supplier"
+            description="NT Plastic Industries has grown by building capability steadily, expanding product range carefully and keeping customer trust at the center of the business."
           />
           <ol className="mt-14 space-y-0">
             {milestones.map((m, i) => (
@@ -92,7 +89,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values */}
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-28">
           <SectionHeading eyebrow="What We Stand For" title="Our values" />
@@ -107,13 +103,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership */}
       <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-28">
           <SectionHeading
             eyebrow="Leadership"
-            title="The people behind the company"
-            description="Placeholder leadership profiles — names and biographies to be provided by the company."
+            title="The team guiding the business"
+            description="Leadership at NT Plastic Industries is focused on strategy, operations and commercial relationships, all aligned around product quality and reliable delivery."
           />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {leadership.map((l, i) => (

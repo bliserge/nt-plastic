@@ -546,9 +546,21 @@ export const values = [
 ]
 
 export const leadership = [
-  { name: 'Leadership Name', position: 'Chief Executive Officer', bio: 'Company-provided biography for the executive leading NT Plastic Industries.' },
-  { name: 'Leadership Name', position: 'Head of Manufacturing', bio: 'Company-provided biography for the executive overseeing production and operations.' },
-  { name: 'Leadership Name', position: 'Head of Commercial', bio: 'Company-provided biography for the executive leading sales and partnerships.' },
+  {
+    name: 'Executive Direction',
+    position: 'Chief Executive Officer',
+    bio: 'Sets company strategy, growth priorities and the customer commitments that shape every part of the business.',
+  },
+  {
+    name: 'Operations Leadership',
+    position: 'Head of Manufacturing',
+    bio: 'Leads production performance, process discipline and quality systems across the factory floor.',
+  },
+  {
+    name: 'Commercial Leadership',
+    position: 'Head of Commercial',
+    bio: 'Guides customer relationships, partnerships and market development across key sectors.',
+  },
 ]
 
 export const mission =

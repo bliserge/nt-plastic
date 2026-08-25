@@ -1,20 +1,25 @@
 import Link from 'next/link'
-import { ArrowRight, Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { ArrowRight, Clock, Mail, MapPin, Phone } from 'lucide-react'
 import { site, categories, solutions } from '@/lib/content'
 import { Logo } from '@/components/logo'
 
 export function SiteFooter() {
   return (
     <footer className="bg-industrial text-industrial-foreground">
-      {/* CTA strip */}
       <div className="border-b border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-12 sm:px-6 lg:flex-row lg:items-center lg:px-8">
-          <h2 className="max-w-xl text-balance font-display text-3xl font-bold sm:text-4xl">
-            Have a project in mind?
-          </h2>
+          <div className="max-w-2xl">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-nt-green">Ready to discuss a project?</p>
+            <h2 className="mt-3 text-balance font-display text-3xl font-bold sm:text-4xl">
+              Have a project in mind?
+            </h2>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-industrial-foreground/65">
+              Give buyers one clear path into the brand: quote, product enquiry or partnership discussion.
+            </p>
+          </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-sm bg-nt-green px-6 py-3.5 text-sm font-semibold text-nt-green-foreground transition-colors hover:bg-nt-green/90"
+            className="inline-flex items-center gap-2 rounded-full bg-nt-green px-6 py-3.5 text-sm font-semibold text-nt-green-foreground transition-all hover:-translate-y-0.5 hover:bg-nt-green/90"
           >
             Request a Quote
             <ArrowRight className="h-4 w-4" />

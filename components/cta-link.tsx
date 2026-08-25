@@ -29,8 +29,9 @@ export function CtaLink({
     <Link
       href={href}
       className={cn(
-        'group inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3.5 text-sm font-semibold transition-colors',
+        'group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition-all duration-200',
         styles[variant],
+        'shadow-sm shadow-black/5 hover:-translate-y-0.5 hover:shadow-md',
         className,
       )}
     >
