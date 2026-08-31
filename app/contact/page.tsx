@@ -4,7 +4,7 @@ import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { PageHero } from '@/components/page-hero'
 import { QuoteCta } from '@/components/quote-cta'
 import { ContactForm } from '@/components/contact/contact-form'
-import { site } from '@/lib/content'
+import { getSite, getCategories } from '@/lib/cms'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -12,13 +12,15 @@ export const metadata: Metadata = {
     'Talk to NT Plastic Industries about products, quotes, partnerships, distribution and custom manufacturing.',
 }
 
-export default function ContactPage({
+export default async function ContactPage({
   searchParams,
 }: {
-  searchParams?: { product?: string | string[]; inquiry?: string | string[] }
+  searchParams?: Promise<{ product?: string | string[]; inquiry?: string | string[] }>
 }) {
-  const product = typeof searchParams?.product === 'string' ? searchParams.product : undefined
-  const inquiry = typeof searchParams?.inquiry === 'string' ? searchParams.inquiry : undefined
+  const [site, categories] = await Promise.all([getSite(), getCategories()])
+  const resolvedSearchParams = await searchParams
+  const product = typeof resolvedSearchParams?.product === 'string' ? resolvedSearchParams.product : undefined
+  const inquiry = typeof resolvedSearchParams?.inquiry === 'string' ? resolvedSearchParams.inquiry : undefined
 
   return (
     <>
@@ -59,7 +61,7 @@ export default function ContactPage({
         </div>
       </section>
 
-      <ContactForm initialProduct={product} initialInquiry={inquiry} />
+      <ContactForm initialProduct={product} initialInquiry={inquiry} categories={categories} site={site} />
 
       <QuoteCta
         title="Have a challenge? Let's find the right solution."

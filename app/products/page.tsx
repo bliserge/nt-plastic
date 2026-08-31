@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { categories } from '@/lib/content'
+import { getContent } from '@/lib/cms'
 import { PageHero } from '@/components/page-hero'
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal } from '@/components/reveal'
@@ -15,7 +15,8 @@ export const metadata: Metadata = {
     'Explore plastic products manufactured for homes, businesses, infrastructure and industry — water storage, piping, packaging, household and industrial products.',
 }
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const { categories, products } = await getContent()
   return (
     <>
       <PageHero
@@ -75,7 +76,7 @@ export default function ProductsPage() {
 
       {/* Catalogue + search + filters */}
       <div className="border-t border-border bg-secondary/50">
-        <Catalogue />
+        <Catalogue products={products} categories={categories} />
       </div>
 
       {/* Need help choosing */}

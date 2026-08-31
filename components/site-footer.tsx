@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { ArrowRight, Clock, Mail, MapPin, Phone } from 'lucide-react'
-import { site, categories, solutions } from '@/lib/content'
 import { Logo } from '@/components/logo'
+import type { Category, Solution } from '@/lib/content'
 
-export function SiteFooter() {
+export function SiteFooter({ site, categories, solutions }: { site: typeof import('@/lib/content').site; categories: Category[]; solutions: Solution[] }) {
   return (
     <footer className="bg-industrial text-industrial-foreground">
       <div className="border-b border-white/10">

@@ -10,10 +10,12 @@ export function StatCounter({
   value,
   suffix = '',
   duration = 1600,
+  className,
 }: {
   value: number
   suffix?: string
   duration?: number
+  className?: string
 }) {
   const ref = useRef<HTMLSpanElement>(null)
   const [display, setDisplay] = useState(0)
@@ -41,7 +43,7 @@ export function StatCounter({
   }, [value, duration])
 
   return (
-    <span ref={ref}>
+    <span ref={ref} className={className}>
       {format(display)}
       {suffix}
     </span>

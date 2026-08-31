@@ -16,7 +16,7 @@ import {
   Truck,
   Wrench,
 } from 'lucide-react'
-import { categories, stats, solutions, featuredProducts } from '@/lib/content'
+import type { Category, Product, Solution } from '@/lib/content'
 import { Reveal } from '@/components/reveal'
 import { SectionHeading } from '@/components/section-heading'
 import { StatCounter } from '@/components/stat-counter'
@@ -79,7 +79,7 @@ export function ManufacturingStatement() {
 }
 
 // SECTION 03 - Product universe
-export function ProductUniverse() {
+export function ProductUniverse({ categories }: { categories: Category[] }) {
   return (
     <section className="bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -159,7 +159,7 @@ export function ProductUniverse() {
 }
 
 // SECTION 04 - Manufacturing scale
-export function ManufacturingScale() {
+export function ManufacturingScale({ manufacturingSteps }: { manufacturingSteps: { no: string; title: string; description: string }[] }) {
   return (
     <section className="bg-secondary py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -171,7 +171,7 @@ export function ManufacturingScale() {
               description="NT Plastic Industries runs a disciplined production flow, from materials intake and processing through quality control, finishing and distribution."
             />
             <div className="mt-10">
-              <ProcessSteps />
+              <ProcessSteps manufacturingSteps={manufacturingSteps} />
             </div>
           </div>
         </div>
@@ -194,7 +194,7 @@ export function ManufacturingScale() {
 }
 
 // SECTION 05 - The numbers
-export function Numbers() {
+export function Numbers({ stats }: { stats: { value: number; suffix: string; label: string }[] }) {
   return (
     <section className="bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -312,7 +312,7 @@ export function InsideNtPlastic() {
 }
 
 // SECTION 08 - Solutions
-export function SolutionsPreview() {
+export function SolutionsPreview({ solutions }: { solutions: Solution[] }) {
   return (
     <section className="bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -406,7 +406,7 @@ export function SustainabilityPreview() {
 }
 
 // SECTION 10 - Featured products
-export function FeaturedProducts() {
+export function FeaturedProducts({ featuredProducts }: { featuredProducts: Product[] }) {
   return (
     <section className="bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

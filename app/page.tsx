@@ -12,21 +12,23 @@ import {
   FeaturedProducts,
 } from '@/components/home/sections'
 import { QuoteCta } from '@/components/quote-cta'
+import { getContent } from '@/lib/cms'
 
-export default function HomePage() {
+export default async function HomePage() {
+  const content = await getContent()
   return (
     <>
       <Hero />
       <ManufacturingStatement />
-      <ProductUniverse />
-      <ProductShowcase />
-      <ManufacturingScale />
-      <Numbers />
+      <ProductUniverse categories={content.categories} />
+      <ProductShowcase categories={content.categories} />
+      <ManufacturingScale manufacturingSteps={content.manufacturingSteps} />
+      <Numbers stats={content.stats} />
       <WhyNtPlastic />
       <InsideNtPlastic />
-      <SolutionsPreview />
+      <SolutionsPreview solutions={content.solutions} />
       <SustainabilityPreview />
-      <FeaturedProducts />
+      <FeaturedProducts featuredProducts={content.featuredProducts} />
       <QuoteCta />
     </>
   )

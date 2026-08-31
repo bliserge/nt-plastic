@@ -6,7 +6,7 @@ import { SectionHeading } from '@/components/section-heading'
 import { ProcessSteps } from '@/components/process-steps'
 import { StatCounter } from '@/components/stat-counter'
 import { QuoteCta } from '@/components/quote-cta'
-import { equipment, qualityChecks, capacityStats } from '@/lib/content'
+import { getContent } from '@/lib/cms'
 
 export const metadata: Metadata = {
   title: 'Manufacturing',
@@ -14,7 +14,8 @@ export const metadata: Metadata = {
     'Inside NT Plastic Industries: production process, machinery, quality control and manufacturing capacity.',
 }
 
-export default function ManufacturingPage() {
+export default async function ManufacturingPage() {
+  const { equipment, qualityChecks, capacityStats, manufacturingSteps } = await getContent()
   return (
     <>
       <PageHero
@@ -49,7 +50,7 @@ export default function ManufacturingPage() {
             description="Each stage is structured to keep output consistent, reduce avoidable variation and support dependable delivery."
           />
           <div className="mt-14">
-            <ProcessSteps />
+            <ProcessSteps manufacturingSteps={manufacturingSteps} />
           </div>
         </div>
       </section>

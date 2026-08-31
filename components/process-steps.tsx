@@ -1,7 +1,7 @@
-import { manufacturingSteps } from '@/lib/content'
+type ManufacturingStep = { no: string; title: string; description: string }
 import { Reveal } from '@/components/reveal'
 
-export function ProcessSteps({ invert = false }: { invert?: boolean }) {
+export function ProcessSteps({ invert = false, manufacturingSteps }: { invert?: boolean; manufacturingSteps: ManufacturingStep[] }) {
   return (
     <div className="grid gap-px overflow-hidden rounded-lg border border-border sm:grid-cols-2 lg:grid-cols-4">
       {manufacturingSteps.map((step, i) => (

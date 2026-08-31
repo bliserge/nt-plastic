@@ -2,11 +2,11 @@
 
 import { useMemo, useState } from 'react'
 import { Search } from 'lucide-react'
-import { products, categories } from '@/lib/content'
+import type { Category, Product } from '@/lib/content'
 import { ProductCard } from '@/components/product-card'
 import { cn } from '@/lib/utils'
 
-export function Catalogue() {
+export function Catalogue({ products, categories }: { products: Product[]; categories: Category[] }) {
   const [query, setQuery] = useState('')
   const [active, setActive] = useState<string>('all')
 

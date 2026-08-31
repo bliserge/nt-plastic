@@ -5,10 +5,9 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { nav } from '@/lib/content'
 import { Logo } from '@/components/logo'
 
-export function SiteHeader() {
+export function SiteHeader({ nav }: { nav: { label: string; href: string }[] }) {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)

@@ -3,13 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowRight, Download, Check, FileText } from 'lucide-react'
-import { products, getProduct, relatedProducts } from '@/lib/content'
+import { getContent } from '@/lib/cms'
 import { Reveal } from '@/components/reveal'
 import { SectionHeading } from '@/components/section-heading'
 import { ProductCard } from '@/components/product-card'
 import { CtaLink } from '@/components/cta-link'
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const { products } = await getContent()
   return products.map((p) => ({ category: p.category, product: p.slug }))
 }
 
@@ -19,7 +20,8 @@ export async function generateMetadata({
   params: Promise<{ product: string }>
 }): Promise<Metadata> {
   const { product } = await params
-  const p = getProduct(product)
+  const { products } = await getContent()
+  const p = products.find((item) => item.slug === product)
   if (!p) return {}
   return { title: p.name, description: p.short }
 }
@@ -38,9 +40,10 @@ export default async function ProductDetailPage({
   params: Promise<{ product: string }>
 }) {
   const { product } = await params
-  const p = getProduct(product)
+  const { products } = await getContent()
+  const p = products.find((item) => item.slug === product)
   if (!p) notFound()
-  const related = relatedProducts(p)
+  const related = products.filter((item) => item.category === p.category && item.slug !== p.slug).slice(0, 3)
   const quoteHref = `/contact?product=${encodeURIComponent(p.name)}`
   const gallery = p.gallery?.length ? p.gallery : [p.image, '/images/factory-floor.png', '/images/quality-control.png']
 

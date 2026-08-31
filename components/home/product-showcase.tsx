@@ -4,10 +4,10 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { categories } from '@/lib/content'
+import type { Category } from '@/lib/content'
 import { cn } from '@/lib/utils'
 
-export function ProductShowcase() {
+export function ProductShowcase({ categories }: { categories: Category[] }) {
   const [active, setActive] = useState(0)
   const current = categories[active]
 

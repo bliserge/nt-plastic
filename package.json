@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "contentful:import": "node --env-file=.env.local --import tsx scripts/import-contentful.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
@@ -27,6 +28,7 @@
     "@types/react-dom": "^19",
     "postcss": "^8.5",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.13",
     "typescript": "5.7.3"
   },
   "pnpm": {

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
-import { categories, getSolution, solutions, products } from '@/lib/content'
+import { getContent } from '@/lib/cms'
 import { PageHero } from '@/components/page-hero'
 import { Reveal } from '@/components/reveal'
 import { SectionHeading } from '@/components/section-heading'
@@ -11,7 +11,8 @@ import { ProductCard } from '@/components/product-card'
 import { CtaLink } from '@/components/cta-link'
 import { QuoteCta } from '@/components/quote-cta'
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const { solutions } = await getContent()
   return solutions.map((solution) => ({ slug: solution.slug }))
 }
 
@@ -21,7 +22,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const solution = getSolution(slug)
+  const { solutions } = await getContent()
+  const solution = solutions.find((item) => item.slug === slug)
   if (!solution) return {}
 
   return {
@@ -36,7 +38,8 @@ export default async function SolutionDetailPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const solution = getSolution(slug)
+  const { categories, products, solutions } = await getContent()
+  const solution = solutions.find((item) => item.slug === slug)
   if (!solution) notFound()
 
   const relatedProducts = products.filter((product) => solution.categories.includes(product.category))

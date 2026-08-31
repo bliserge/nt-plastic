@@ -5,7 +5,7 @@ import { Reveal } from '@/components/reveal'
 import { SectionHeading } from '@/components/section-heading'
 import { StatCounter } from '@/components/stat-counter'
 import { QuoteCta } from '@/components/quote-cta'
-import { sustainabilityInitiatives, sustainabilityMetrics } from '@/lib/content'
+import { getContent } from '@/lib/cms'
 
 export const metadata: Metadata = {
   title: 'Sustainability',
@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     'How NT Plastic Industries manufactures responsibly through waste reduction, resource efficiency, recycling and product longevity.',
 }
 
-export default function SustainabilityPage() {
+export default async function SustainabilityPage() {
+  const { sustainabilityInitiatives, sustainabilityMetrics } = await getContent()
   return (
     <>
       <PageHero

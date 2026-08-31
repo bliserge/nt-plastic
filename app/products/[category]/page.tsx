@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { categories, getCategory, productsByCategory } from '@/lib/content'
+import { getContent } from '@/lib/cms'
 import { PageHero } from '@/components/page-hero'
 import { ProductCard } from '@/components/product-card'
 import { Reveal } from '@/components/reveal'
 import { QuoteCta } from '@/components/quote-cta'
 import { CtaLink } from '@/components/cta-link'
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const { categories } = await getContent()
   return categories.map((c) => ({ category: c.slug }))
 }
 
@@ -17,7 +18,8 @@ export async function generateMetadata({
   params: Promise<{ category: string }>
 }): Promise<Metadata> {
   const { category } = await params
-  const c = getCategory(category)
+  const { categories } = await getContent()
+  const c = categories.find((item) => item.slug === category)
   if (!c) return {}
   return { title: c.name, description: c.description }
 }
@@ -28,9 +30,10 @@ export default async function CategoryPage({
   params: Promise<{ category: string }>
 }) {
   const { category } = await params
-  const c = getCategory(category)
+  const { categories, products } = await getContent()
+  const c = categories.find((item) => item.slug === category)
   if (!c) notFound()
-  const items = productsByCategory(category)
+  const items = products.filter((product) => product.category === category)
 
   return (
     <>

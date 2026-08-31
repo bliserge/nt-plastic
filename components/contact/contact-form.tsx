@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { ComponentType, FormEvent, InputHTMLAttributes } from 'react'
 import { CheckCircle2, Clock3, Loader2, Mail, MapPin, MessageCircle, Phone, Send } from 'lucide-react'
-import { categories, site } from '@/lib/content'
+import type { Category } from '@/lib/content'
 import { cn } from '@/lib/utils'
 
 type InquiryType =
@@ -50,9 +50,13 @@ const inquiryOptions: { value: InquiryType; title: string; description: string }
 export function ContactForm({
   initialProduct,
   initialInquiry,
+  categories,
+  site,
 }: {
   initialProduct?: string
   initialInquiry?: string
+  categories: Category[]
+  site: typeof import('@/lib/content').site
 }) {
   const [intent, setIntent] = useState<InquiryType>(
     initialInquiry && inquiryOptions.some((option) => option.value === initialInquiry)

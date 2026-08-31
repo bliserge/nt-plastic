@@ -5,7 +5,7 @@ import { Reveal } from '@/components/reveal'
 import { SectionHeading } from '@/components/section-heading'
 import { StatCounter } from '@/components/stat-counter'
 import { QuoteCta } from '@/components/quote-cta'
-import { milestones, values, leadership, mission, vision, stats } from '@/lib/content'
+import { getContent } from '@/lib/cms'
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     'The story, mission, values and leadership structure behind NT Plastic Industries Ltd, a modern plastic manufacturing company.',
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const { milestones, values, leadership, mission, vision, stats } = await getContent()
   return (
     <>
       <PageHero

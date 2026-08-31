@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import { PageHero } from '@/components/page-hero'
 import { Reveal } from '@/components/reveal'
 import { QuoteCta } from '@/components/quote-cta'
-import { solutions } from '@/lib/content'
+import { getSolutions } from '@/lib/cms'
 
 export const metadata: Metadata = {
   title: 'Solutions',
@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     'Plastic solutions engineered for water & sanitation, construction, agriculture, residential, commercial and industrial applications.',
 }
 
-export default function SolutionsPage() {
+export default async function SolutionsPage() {
+  const solutions = await getSolutions()
   return (
     <>
       <PageHero
