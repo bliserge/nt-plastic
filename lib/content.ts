@@ -14,8 +14,8 @@ export const site = {
   contact: {
     phone: '+250 788 000 000',
     phoneAlt: '+250 722 000 000',
-    email: 'info@ntplastic.com',
-    sales: 'sales@ntplastic.com',
+    email: 'ntplasticindustries@gmail.com',
+    sales: 'ntplasticindustries@gmail.com',
     whatsapp: '+250 788 000 000',
     address: 'Special Economic Zone, Kigali, Rwanda',
     hours: 'Mon – Fri: 08:00 – 18:00 · Sat: 08:00 – 13:00',
